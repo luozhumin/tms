@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+
+    <description>应用总配置</description>
+
+    <context:property-placeholder location="classpath:application.properties" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath:memcachedconf.properties" ignore-unresolvable="true"/>
+
+    <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+    <context:component-scan base-package="com.jhjc.app.service"/>
+    <context:component-scan base-package="com.jhjc.app.dao"/>
+
+    <bean class="com.jhjc.app.common.constants.SystemConstants">
+        <property name="testUrl">
+            <value>${testUrl}</value>
+        </property>
+    </bean>
+
+    <!-- 数据库配置 -->
+    <import resource="orm-context.xml"/>
+
+    <!-- spring bean管理工具 -->
+    <bean id="beanFactoryUtils" class="com.jhjc.app.web.BeanFactoryUtils"/>
+
+    <bean class="com.jhjc.app.web.aspect.ApiExceptionAspect"/>
+
+    <task:annotation-driven/>
+
+
+    <import resource="clerk-memcached.xml"/>
+
+</beans>
