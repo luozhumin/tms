@@ -1,1 +1,12 @@
 
+项目框架
+Spring+SpringMVC+MyBatis
+数据库
+Oracle
+遇到问题
+maven添加Oracle jar包总是无法添加
+原因由于Oracle授权问题，Maven3不提供Oracle JDBC driver，为了在Maven项目中应用Oracle JDBC driver,必须手动添加到本地仓库
+添加代码
+oraclejar包位置：Oracle的安装目录位置在“{ORACLE_HOME}\jdbc\lib\ojdbc6.jar”
+oracle版本：select * from v$version;
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.1.0 -Dpackaging=jar -Dfile=ojdbc6.jar
