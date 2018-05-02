@@ -10,3 +10,10 @@ maven添加Oracle jar包总是无法添加
 oraclejar包位置：Oracle的安装目录位置在“{ORACLE_HOME}\jdbc\lib\ojdbc6.jar”
 oracle版本：select * from v$version;
 mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.1.0 -Dpackaging=jar -Dfile=ojdbc6.jar
+
+分页插件
+pageHelper
+https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md
+
+springController接收参数总结
+https://blog.csdn.net/theHeacewalker/article/details/54563500

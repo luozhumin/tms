@@ -1,5 +1,7 @@
 package com.jhjc.app.domain;
 
+import com.sun.xml.internal.rngom.parse.host.Base;
+
 public class SysOperator {
     private Integer oid;
     private Integer soid;

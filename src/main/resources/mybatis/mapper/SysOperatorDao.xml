@@ -87,7 +87,6 @@
             <if test="pojo.driver != null"> AND driver = #{pojo.driver} </if>
             <if test="pojo.password != null"> AND password = #{pojo.password} </if>
         </where>
-
     </select>
 
 <!--auto generated Code-->
