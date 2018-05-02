@@ -4,6 +4,7 @@
 .project
 /.idea/
 *.iml
+/out
 
 
 # Compiled class file
