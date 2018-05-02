@@ -1,7 +1,0 @@
--- auto Generated on 2018-04-23 16:02:14 
--- DROP TABLE IF EXISTS `test_data`; 
-CREATE TABLE test_data(
-    `id` INTEGER(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'id',
-    `name` VARCHAR(50) NOT NULL DEFAULT '' COMMENT 'name',
-    PRIMARY KEY (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT 'test_data';
